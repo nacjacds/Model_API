@@ -30,8 +30,8 @@ conn.commit()
 
 # Cargar el modelo
 model = None
+model_path = 'data/advertising_model.pkl'
 try:
-    model_path = 'data/advertising_model.pkl'
     if os.path.exists(model_path):
         model = joblib.load(model_path)
         print(f"Modelo cargado desde {model_path}")
@@ -86,6 +86,7 @@ def ingest(data: AdDataIngest):
 
 @app.post("/retrain")
 def retrain():
+    global model
     try:
         cursor.execute("SELECT TV, Radio, Newspaper, Sales FROM advertising")
         rows = cursor.fetchall()
@@ -93,9 +94,9 @@ def retrain():
         print("Datos recibidos para reentrenamiento:", df)
         X = df[["TV", "Radio", "Newspaper"]]
         y = df["Sales"]
-        new_model = LinearRegression()
-        new_model.fit(X, y)
-        joblib.dump(new_model, 'data/advertising_model.pkl')
+        model = LinearRegression()
+        model.fit(X, y)
+        joblib.dump(model, model_path)
         print("Modelo reentrenado y guardado")
         return {"message": "Model retrained successfully"}
     except Exception as e:
@@ -103,4 +104,4 @@ def retrain():
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
