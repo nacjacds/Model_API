@@ -46,5 +46,5 @@ The application has been encapsulated in a Docker container to ensure consistenc
 - **Pandas**: Library for data manipulation.
 - **SQLite**: Database management system.
 - **Pickle**: To save and load the trained model.
-  **Postman**: To test the API endpoints.
+- **Postman**: To test the API endpoints.
 - **Docker**: To deploy the API.
