@@ -26,8 +26,8 @@ URL: /retrain
 Method: POST
 - **Description**: Retrains the model using the data in the database.
 
-### Testing with Postman
+## Testing with Postman
 The API endpoints have been tested using Postman to ensure they work correctly. Postman allows for easy interaction with the API to verify functionality and troubleshoot issues.
 
-### Docker Containerization
+## Docker Containerization
 The application has been encapsulated in a Docker container to ensure consistency across different environments and to simplify deployment.
