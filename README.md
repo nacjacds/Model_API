@@ -40,7 +40,7 @@ The API endpoints have been tested using Postman to ensure they work correctly. 
 
 ## Docker Containerization
 The application has been encapsulated in a Docker container to ensure consistency across different environments and to simplify deployment.
-- ### Docker Image Link: https://hub.docker.com/repository/docker/nacjacds/model-api/general
+- ### Docker Image Link: https://hub.docker.com/r/nacjacds/model-api
 ## Tools
 - **FastAPI**: To build the API.
 - **Pandas**: Library for data manipulation.
